@@ -1,0 +1,11 @@
+[Unit]
+Description=Configure the network of the Valeo charger 
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/libexec/phytec/config_network.sh
+
+[Install]
+WantedBy=multi-user.target
