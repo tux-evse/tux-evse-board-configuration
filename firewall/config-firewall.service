@@ -1,11 +1,11 @@
 [Unit]
 Description=Configure the firewall of the Valeo charger 
-After=multi-user.target
+After=config-network.service
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/libexec/imx8mn-compact/boot-config.sh
+ExecStart=/usr/bin/config-firewall
 
 [Install]
 WantedBy=multi-user.target
