@@ -1,7 +1,7 @@
 
 # Repositories configuration Config
 
-On the page main page of the [project](https://aquarium-app.redpesk.bzh/#/pages/projects/my-prjs/tux-evse_713f6bdf/overview), you can find a button (Add repository on target)
+On the main page of the [project](https://aquarium-app.redpesk.bzh/#/pages/projects/my-prjs/tux-evse_713f6bdf/overview), you can find a button (Add repository on target)
 
 ![](./repositories.png)
 
