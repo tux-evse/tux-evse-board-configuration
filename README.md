@@ -24,3 +24,7 @@ At the first boot you need to configure some point on the board.
 ### Firewall
 
 Thanks to some Linux settings and firewallD rules, this is possible to allow traffic between differents interfaces as needed for the project.
+
+### How to use the VPN
+
+[README.md](./network/README.md)
