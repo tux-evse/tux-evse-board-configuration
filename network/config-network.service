@@ -5,7 +5,7 @@ After=NetworkManager
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/config_network
+ExecStart=/usr/bin/config-network
 
 [Install]
 WantedBy=multi-user.target
