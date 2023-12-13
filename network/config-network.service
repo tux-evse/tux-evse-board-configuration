@@ -1,6 +1,6 @@
 [Unit]
 Description=Configure the network of the Valeo charger 
-After=NetworkManager
+After=NetworkManager.service
 
 [Service]
 Type=oneshot

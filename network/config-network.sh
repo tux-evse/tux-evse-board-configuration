@@ -12,11 +12,22 @@ password="valeocharger" # visible password for the demo
 
 # check if the interface is present
 if [ -e "/sys/class/net/$interface" ]; then
-    # hotspot wifi creation
-    nmcli device wifi hotspot ifname "$interface" con-name "$connection_name" ssid "$ssid" password "$password"
-    nmcli connection up "$connection_name"
+    # check if the hotspot is already created
+    if [ "$(nmcli c show | grep "$connection_name")" ]; then
+        # check if the connection is up
+        if [ "$(nmcli c show "$connection_name" | grep "STATE: up")" ]; then
+            echo "Hotspot $connection_name is already up!"
+        else
+            echo "Hotspot $connection_name is down."
+            exit 1
+        fi
+    else
+        # hotspot wifi creation
+        nmcli device wifi hotspot ifname "$interface" con-name "$connection_name" ssid "$ssid" password "$password"
+        nmcli connection up "$connection_name"
+    fi
 else
-    # system error
+    # system error
     echo "The $interface interface doesn't exist or is not configured." >&2
     exit 1
 fi
