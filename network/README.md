@@ -49,3 +49,20 @@ You must have:
 - both interfaces must be **UP** when you want to use them
 
 Another solution is to use the local-link feature but we don't use it at the moment.
+
+## Showing the connections with 'nmcli'
+
+```shell
+$ nmcli connection
+```
+
+## Changing IPv4 method from auto to manual
+
+```shell
+MY_CON="Wired connection x"
+MY_ADDR="192.x.x.x"
+nmcli con modify $MY_CON ipv4.method manual ipv4.addresses $MY_ADDR/24
+nmcli con modify $MY_CON ipv6.method disable
+```
+
+Don't forget to reboot the connection/interface to apply the changes!
