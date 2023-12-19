@@ -18,8 +18,7 @@ if [ -e "/sys/class/net/$interface" ]; then
         if [ "$(nmcli c show "$connection_name" | grep "STATE: up")" ]; then
             echo "Hotspot $connection_name is already up!"
         else
-            echo "Hotspot $connection_name is down."
-            exit 1
+            nmcli connection up "$connection_name"
         fi
     else
         # hotspot wifi creation
