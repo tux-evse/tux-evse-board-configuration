@@ -1,0 +1,8 @@
+{
+    "name": "afb-display",
+    "port": 80,
+    "alias": [
+        "/devtools:/usr/share/afb-ui-devtools/binder",
+        "/:$PWD/html"
+    ]
+}
