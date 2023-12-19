@@ -30,3 +30,7 @@ Thanks to some Linux settings and firewallD rules, this is possible to allow tra
 ### How to use the VPN
 
 [README.md](./network/README.md)
+
+### WiFi Hotspot
+
+[README.md](./hotspot_wifi/README.md)
