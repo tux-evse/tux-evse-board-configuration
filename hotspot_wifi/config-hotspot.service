@@ -1,0 +1,11 @@
+[Unit]
+Description=Configure the wifi hotspot of the Valeo charger 
+After=config-firewall.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/config-hotspot
+
+[Install]
+WantedBy=multi-user.target

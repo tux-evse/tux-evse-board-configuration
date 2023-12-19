@@ -37,13 +37,7 @@ Then you must have a running web-server on the target (e.g. Apache or afb-binder
 Here is the script used to expose the HTTP server used by the captive-portal:
 
 ```shell
-#!/bin/bash
-
-# move to projet base to get relative path to logo image
-export DIR=`$0`/../..
-echo $DIR
-
-sudo PWD=$PWD afb-binder -vvv --tracereq=all --config=etc/binding-portal.json
+systemctl restart config-hotspot
 ```
 
 _Nota Bene: HTTPS is a must-have for a final captive portal version, [here](https://github.com/tux-evse/lvgl-binding-rs/commit/c77d5e72656904f03349b7f9c33b5b60dab32dbf) the 443 port configuration_
