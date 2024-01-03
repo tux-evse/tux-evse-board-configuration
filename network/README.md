@@ -66,3 +66,10 @@ nmcli con modify $MY_CON ipv6.method disable
 ```
 
 Don't forget to reboot the connection/interface to apply the changes!
+
+## Set the DNS to the Phytec Board
+
+```shell
+nmcli con mod $MY_CON ipv4.dns "9.9.9.9 1.1.1.1"
+```
+
