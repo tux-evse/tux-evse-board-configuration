@@ -32,6 +32,8 @@ Then you must have a running web-server on the target (e.g. Apache or afb-binder
 `-- launch_test_captive.sh
 ```
 
+Some [symbolic links](https://en.wikipedia.org/wiki/Captive_portal#Detection) have been made to configure the captive portal for different platforms.
+
 ## Launch the HTTP server (afb-binder)
 
 Here is the script used to expose the HTTP server used by the captive-portal:
