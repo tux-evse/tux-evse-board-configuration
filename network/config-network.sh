@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Ethernet : auto configured as eth0
+# Ethernet : eth0 as a dhcp/static address - eth1 as a link address
 # LTE : auto configured as usb0
 # Bluetooth : not configured yet
 
