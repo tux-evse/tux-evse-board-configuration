@@ -104,6 +104,7 @@ MY_ADDR="192.168.56.2"
 MY_PORT="eth1"
 nmcli con add type ethernet con-name $MY_CON ifname $MY_PORT
 nmcli con modify $MY_CON ipv4.method manual ipv4.addresses $MY_ADDR/24
+nmcli con modify $MY_CON +ipv4.routes "192.168.56.0/24 $MY_ADDR"
 nmcli con modify $MY_CON ipv6.method disable
 ```
 
