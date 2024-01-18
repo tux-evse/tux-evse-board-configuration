@@ -67,7 +67,7 @@ The syntax of the devtools server URL is:
 Only one binder can used a port at a time.
 
 | Binder   | devtools tcp port          | API          | tcp port          |
-| :--------------- |:---------------:|
+| :--------------- |:---------------:|:---------------:|:---------------:|
 | energy-binding-rs  | 1235        | engy        | 12351        |
 | display-binding-rs  | 1236             | -        | -        |
 | charging-binding-rs  | 1237          | chmgr        | 12371        |
