@@ -4,6 +4,7 @@
 firewall-cmd --zone=work --add-interface=eth0 --add-interface=eth1 --permanent
 firewall-cmd --zone=external --add-interface=wlan0 --permanent
 firewall-cmd --zone=public --add-interface=usb0 --permanent
+firewall-cmd --zone=work --add-interface=$(nmcli -g name con |grep wg) --permanent
 
 # authorized ports for the 4G modem
 firewall-cmd --permanent --zone=public --add-port=80/tcp # os settings
