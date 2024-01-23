@@ -18,4 +18,7 @@ if grep -q "tuxevse.iot.bzh" "/etc/hosts"; then
     sed -i '/^127.0.0.1/s/$/ tuxevse.iot.bzh/' /etc/hosts
 fi
 
-sudo PWD=$PWD afb-binder -vvv --tracereq=all --config=conf-captive-portal.json
+# launching the hotspot only if the connection exists
+if [ "$(nmcli c show "tuxevse_hotspot" | grep "STATE: activated")" ]; then
+        sudo PWD=$PWD afb-binder -vvv --tracereq=all --config=conf-captive-portal.json
+fi

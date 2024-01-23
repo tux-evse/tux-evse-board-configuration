@@ -15,7 +15,7 @@ if [ -e "/sys/class/net/$interface" ]; then
     # check if the hotspot is already created
     if [ "$(nmcli c show | grep "$connection_name")" ]; then
         # check if the connection is up
-        if [ "$(nmcli c show "$connection_name" | grep "STATE: up")" ]; then
+        if [ "$(nmcli c show "$connection_name" | grep "STATE: activated")" ]; then
             echo "Hotspot $connection_name is already up!"
         else
             nmcli connection up "$connection_name"
