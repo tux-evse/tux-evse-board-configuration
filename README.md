@@ -98,4 +98,3 @@ Each binder manager has a script to test it, as:
 ```bash
 /usr/redpesk/evse-$$$-manager-binder/test/bin/start-binder.sh
 ```
-
