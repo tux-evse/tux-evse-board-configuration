@@ -40,14 +40,13 @@ Thanks to some Linux settings and firewallD rules, this is possible to allow tra
 - [auth-binding-rs](https://github.com/tux-evse/auth-binding-rs)
 - [charging-binding-rs](https://github.com/tux-evse/charging-binding-rs)
 - [display-binding-rs](https://github.com/tux-evse/display-binding-rs)
-- energy-binding-rs
-- i2c-binding-rs
-- linky-binding-rs
-- lvgl-binding-rs
-- ocpp-binding-rs
+- [energy-binding-rs](https://github.com/tux-evse/energy-binding-rs)
+- [i2c-binding-rs](https://github.com/tux-evse/i2c-binding-rs)
+- [linky-binding-rs](https://github.com/tux-evse/linky-binding-rs)
+- [ocpp-binding-rs](https://github.com/tux-evse/ocpp-binding-r)
 - [scard-binding-rs](https://github.com/tux-evse/scard-binding-rs)
 - [slac-binding-rs](https://github.com/tux-evse/slac-binding-rs)
-- ti-am62x-binding-rs
+- [ti-am62x-binding-rs](https://github.com/tux-evse/ti-am62x-binding-rs)
 
 ### List of the binder manager
 
