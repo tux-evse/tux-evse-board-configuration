@@ -2,7 +2,7 @@
 
 # check if a port is already added to a zone
 check_port() {
-    firewall-cmd --zone="$1" --query-ports="$2"
+    firewall-cmd --zone="$1" --query-port="$2"
 }
 
 # add a port to a zone if not already added
@@ -46,7 +46,6 @@ fi
 add_port "public" "80/tcp"
 add_port "public" "8080-8082/tcp"
 add_port "public" "1200-1299/tcp"
-add_port "public" "icmp"
 
 # check and add ports for eth0
 add_port "work" "22/tcp"
