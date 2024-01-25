@@ -1,3 +1,4 @@
 SUBSYSTEM=="tty", ATTRS{serial}=="AU057OGY", SYMLINK+="ttyUSB_RS485"
 SUBSYSTEM=="tty", ATTRS{serial}=="DA7SLZSL", SYMLINK+="ttyUSB_TIC"
 SUBSYSTEM=="tty", ATTRS{interface}=="Dual RS232-HS", SYMLINK+="ttyUSB_RS232_%s{bInterfaceNumber}"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="usb*", ENV{SYSTEMD_WANTS}+="config-usb.service"

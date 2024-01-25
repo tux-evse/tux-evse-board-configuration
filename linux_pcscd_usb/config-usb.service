@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart the USB Hub
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/config-usb
+
+[Install]
+WantedBy=multi-user.target
