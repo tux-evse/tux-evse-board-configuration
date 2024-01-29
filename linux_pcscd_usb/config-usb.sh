@@ -5,17 +5,18 @@
 
 DEBUG=false
 
-vendor_id="0bda"
-product_id="5411"
+device_name='ACR122U'
 
-bus_device=$(lsusb -d "$vendor_id:$product_id" | grep "Bus" | head -n 1) # first output line
+bus_device=$(lsusb | grep "$device_name" | grep "Bus" | head -n 1) && [ -z "$bus_device" ] && \
+{ [ "$DEBUG" = true ] && \
+echo "The $device_name device is not connected to the board."; exit 1; }
+
 bus_number=$(echo $bus_device | awk '{print $2}')
 device_number=$(echo $bus_device | awk '{print $4}' | cut -d ':' -f 1)
 
 hub_usb="/dev/bus/usb/$(echo $bus_number | cut -c 4-6)$(echo $bus_number | cut -c 1-3)/$device_number"
 
-if [ $DEBUG ] i; then
-	echo "USB device $vendor_id:$product_id is on the $hub_usb bus."
-fi
+[ "$DEBUG" = true ] && echo "The $device_name device is on the $hub_usb bus."
 
+# restart the pcscd association
 /usr/redpesk/pcscs-client/bin/pcscd-client --reset=$hub_usb
