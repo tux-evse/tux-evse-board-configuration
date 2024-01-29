@@ -5,7 +5,7 @@ export DIR=`find / -name conf-captive-portal.json`
 cd -P `dirname $DIR`
 
 # symbolics for the different requests
-if [ ! -e html/generate_204 ]; then
+if [ ! -e html/generate_204 -a ! -L html/generate_204 ]; then
     ln -s html/index.html html/canonical.html # linux pop-up
     ln -s html/assets/tux-evsex250.png html/favicon.ico # icon
     ln -s html/index.html html/chat # android
