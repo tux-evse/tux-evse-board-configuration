@@ -1,0 +1,2 @@
+SUBSYSTEM=="rpmsg", KERNEL=="rpmsg_ctrl[0-9]*", GROUP="rpmsg", MODE="0666", SECLABEL{smack}="*"
+SUBSYSTEM=="rpmsg", KERNEL=="rpmsg[0-9]*", GROUP="rpmsg", MODE="0666", SECLABEL{smack}="*"
