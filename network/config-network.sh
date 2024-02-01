@@ -1,6 +1,24 @@
 #!/bin/bash
 
-# Ethernet : eth0 as a dhcp/static address - eth1 as a link address
+# DHCP : eth0 as a IP configuration
+if [ ! -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_dhcp ]; then
+nmcli con add type ethernet con-name tuxevse_dhcp ifname eth0
+nmcli con mod tuxevse_dhcp ipv4.method auto
+nmcli con mod tuxevse_dhcp connection.autoconnect-priority 1
+fi
+# STATIC connection : eth0 as a second IP configuration too
+if [ ! -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_static ]; then
+nmcli con add type ethernet con-name tuxevse_static ifname eth0
+nmcli con mod tuxevse_static ipv4.method manual ipv4.addresses 192.168.10.3/24
+nmcli con mod tuxevse_static connection.autoconnect-priority 0
+fi
+#
+# LINK LOCAL : eth1 as a link local interface
+if [ ! -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_linklocal ]; then
+nmcli con add type ethernet con-name tuxevse_linklocal ifname eth1
+nmcli con mod tuxevse_linklocal ipv4.method link-local
+fi
+
 # LTE : auto configured as usb0
 # Bluetooth : not configured yet
 
