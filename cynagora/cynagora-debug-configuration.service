@@ -1,0 +1,13 @@
+[Unit]
+Description=Configure the cynagora of the evse demo.
+After=cynagora.service
+StartLimitIntervalSec=3
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+ExecStart=/usr/bin/cynagora-debug-configuration.sh
+
+[Install]
+WantedBy=multi-user.target
