@@ -19,4 +19,4 @@ hub_usb="/dev/bus/usb/$(echo $bus_number | cut -c 4-6)$(echo $bus_number | cut -
 [ "$DEBUG" = true ] && echo "The $device_name device is on the $hub_usb bus."
 
 # restart the pcscd association
-/usr/redpesk/pcscs-client/bin/pcscd-client --reset=$hub_usb
+/usr/bin/pcscd-client --reset=$hub_usb
