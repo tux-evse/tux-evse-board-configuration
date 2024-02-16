@@ -39,6 +39,7 @@ Thanks to some Linux settings and firewallD rules, this is possible to allow tra
 
 - [auth-binding-rs](https://github.com/tux-evse/auth-binding-rs)
 - [charging-binding-rs](https://github.com/tux-evse/charging-binding-rs)
+- [dbus-binding](https://github.com/tux-evse/dbus-binding)
 - [display-binding-rs](https://github.com/tux-evse/display-binding-rs)
 - [energy-binding-rs](https://github.com/tux-evse/energy-binding-rs)
 - [i2c-binding-rs](https://github.com/tux-evse/i2c-binding-rs)
@@ -54,6 +55,7 @@ Thanks to some Linux settings and firewallD rules, this is possible to allow tra
 - evse-display-manager-binder
 - evse-charging-manager-binder
 - evse-auth-manager-binder
+- evse-dbus-test-binder
 
 ### The port used in the demo
 
@@ -71,6 +73,7 @@ Only one binder can used a port at a time.
 | display-binding-rs  | 1236             | -        | -        |
 | charging-binding-rs  | 1237          | chmgr        | 12371        |
 | auth-binding-rs  | 1238          | auth        | 12381        |
+| dbus-binding  | 1239             | dbus        | 12391        |
 
 For a generic test of a binding:
 
@@ -92,6 +95,7 @@ Each binder manager has is own tcp port reserve:
 | evse-display-manager-binder  | 1236             |
 | evse-charging-manager-binder  | 1237          |
 | evse-auth-manager-binder  | 1238          |
+| evse-dbus-test-binder  | 1239          |
 
 Each binder manager has a script to test it, as:
 
