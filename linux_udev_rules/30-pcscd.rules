@@ -1,1 +1,1 @@
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{product}=="ACR122U", RUN+="/usr/bin/reset-demo"
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{product}=="ACR122U PICC Interface", RUN+="/usr/bin/reset-demo"
