@@ -2,9 +2,10 @@
 
 # DHCP : eth0 as a IP configuration
 if [ ! -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_dhcp ]; then
-nmcli con add type ethernet con-name tuxevse_dhcp ifname eth0
+nmcli con add type ethernet con-name tuxevse_dhcp ifname eth1
 nmcli con mod tuxevse_dhcp ipv4.method auto
 nmcli con mod tuxevse_dhcp connection.autoconnect-priority 1
+nmcli con mod tuxevse_dhcp connection.autoconnect-retries 1
 fi
 # STATIC connection : eth0 as a second IP configuration too
 if [ ! -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_static ]; then
