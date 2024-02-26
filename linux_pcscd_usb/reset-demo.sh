@@ -23,6 +23,7 @@ chsmack -a "App:energy-manager:Conf" /usr/redpesk/evse-energy-manager-binder/etc
 chsmack -a "App:tux-evse-webapp:Conf" /usr/redpesk/tux-evse-webapp/etc/*
 
 #----------------------------------------
+systemctl restart afm-user-session@1001.service
 
 echo "Restart energy-manager"
 su - rp-owner afm-util run energy-manager
