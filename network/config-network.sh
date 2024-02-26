@@ -48,6 +48,6 @@ if [ -e "/sys/class/net/$interface" ]; then
     fi
 else
     # system error
-    echo "The $interface interface doesn't exist or is not configured." >&2
-    exit 1
+    echo "WARNING:The $interface interface doesn't exist or is not configured." >&2
+    exit 0
 fi
