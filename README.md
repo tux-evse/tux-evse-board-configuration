@@ -14,6 +14,10 @@ At the first boot you need to configure some point on the board.
 
 ## System configuration
 
+### OpenSSL certificates, keys generation
+
+Please see `genssl-demo` which is present on the board as ``/usr/bin/genssl-demo``
+
 ### Network
 
 - Ethernet: auto configured as eth0
