@@ -5,9 +5,10 @@
 
 DIR="/usr/redpesk"
 
-if ! [ -d "$DIR/genssl" ] ; then
-    mkdir -p $DIR/genssl
-fi
+mkdir -p $DIR/genssl
+chgrp users $DIR/genssl
+chmod g+srw $DIR/genssl
+chsmack -a System $DIR/genssl
 
 cd $DIR/genssl
 
@@ -18,3 +19,8 @@ openssl req -x509 -days 365 \
 -newkey rsa:4096 -nodes \
 -subj "/C=FR/ST=Brittany/L=Lorient/O=56/CN=www.tux-evse.com" \
 -keyout tuxevse-key.pem -out tuxevse-cert.pem
+
+cp tuxevse* /usr/redpesk/tux-evse-webapp/etc
+
+# chmod a+rwx -R $DIR/genssl
+chsmack -a App:tux-evse-webapp:Conf /usr/redpesk/tux-evse-webapp/etc/*
