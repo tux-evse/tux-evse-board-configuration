@@ -15,12 +15,16 @@ cd $DIR/genssl
 # clean previous certificates, keys...
 # rm -rf *.pem
 
-openssl req -x509 -days 365 \
--newkey rsa:4096 -nodes \
--subj "/C=FR/ST=Brittany/L=Lorient/O=56/CN=www.tux-evse.com" \
--keyout tuxevse-key.pem -out tuxevse-cert.pem
+if ! [ -f "$DIR/genssl/tuxevse-key.pem" ] ; then
 
-cp tuxevse* /usr/redpesk/tux-evse-webapp/etc
+    openssl req -x509 -days 365 \
+    -newkey rsa:4096 -nodes \
+    -subj "/C=FR/ST=Brittany/L=Lorient/O=56/CN=www.tux-evse.com" \
+    -keyout tuxevse-key.pem -out tuxevse-cert.pem
 
-# chmod a+rwx -R $DIR/genssl
-chsmack -a App:tux-evse-webapp:Conf /usr/redpesk/tux-evse-webapp/etc/*
+    cp tuxevse* /usr/redpesk/tux-evse-webapp/etc
+
+    # chmod a+rwx -R $DIR/genssl
+    chsmack -a App:tux-evse-webapp:Conf /usr/redpesk/tux-evse-webapp/etc/*
+
+fi
