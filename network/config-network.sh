@@ -14,7 +14,7 @@ nmcli con mod tuxevse_dhcp connection.autoconnect-retries 1
 nmcli con add type ethernet con-name tuxevse_static ifname eth0
 nmcli con mod tuxevse_static ipv4.method manual ipv4.addresses 192.168.10.3/24
 nmcli con mod tuxevse_static connection.autoconnect-priority 0
-# LINK LOCAL : eth1 as a link local interface
+# LINK LOCAL : eth1 as a link local interface (if there is no DHCP on eth1)
 nmcli con add type ethernet con-name tuxevse_linklocal ifname eth1
 nmcli con mod tuxevse_linklocal ipv4.method link-local
 
