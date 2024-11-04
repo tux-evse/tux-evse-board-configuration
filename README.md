@@ -20,7 +20,7 @@ Please see `genssl-demo` which is present on the board as ``/usr/bin/genssl-demo
 
 ### Network
 
-- Ethernet: auto configured as eth0
+- Ethernet: eth0 static (for administration purpose), eth1 DHCP, eth2 unmanaged (because of Codico)
 - LTE: configured as usb0 (kernel driver added)
 - Bluetooth: not configured (coming soon)
 - Wifi Configuration: manually configured as wlan0

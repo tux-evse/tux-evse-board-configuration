@@ -20,6 +20,11 @@ nmcli con add type ethernet con-name tuxevse_linklocal ifname eth1
 nmcli con mod tuxevse_linklocal ipv4.method link-local
 fi
 
+# Unmanaged ETH2 because of Codico so IPv6 link local address
+ip -6 addr flush dev eth2 scope link
+sysctl -w net.ipv6.conf.eth2.addr_gen_mode=0
+sysctl -w net.ipv6.conf.eth2.addr_gen_mode=1
+
 # LTE : auto configured as usb0
 # Bluetooth : not configured yet
 
