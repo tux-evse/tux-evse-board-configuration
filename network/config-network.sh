@@ -24,6 +24,8 @@ fi
 ip -6 addr flush dev eth2 scope link
 sysctl -w net.ipv6.conf.eth2.addr_gen_mode=0
 sysctl -w net.ipv6.conf.eth2.addr_gen_mode=1
+ip link set eth2 down
+ip link set eth2 up
 
 # LTE : auto configured as usb0
 # Bluetooth : not configured yet
