@@ -55,3 +55,8 @@ else
     echo "WARNING:The $interface interface doesn't exist or is not configured." >&2
     exit 0
 fi
+
+# Execute a local configuration script, if any
+if [ -x /usr/bin/config-network-local ]; then
+	/usr/bin/config-network-local
+fi
