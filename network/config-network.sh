@@ -53,7 +53,6 @@ if [ -e "/sys/class/net/$interface" ]; then
 else
     # system error
     echo "WARNING:The $interface interface doesn't exist or is not configured." >&2
-    exit 0
 fi
 
 # Execute a local configuration script, if any
