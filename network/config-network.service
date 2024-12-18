@@ -1,0 +1,13 @@
+[Unit]
+Description=Configure the network of the Valeo charger 
+After=network.target
+StartLimitIntervalSec=3
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+ExecStart=/usr/bin/config-network
+
+[Install]
+WantedBy=multi-user.target
