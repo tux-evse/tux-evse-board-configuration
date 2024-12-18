@@ -1,0 +1,16 @@
+[connection]
+id=tuxevse_linklocal
+uuid=b90e09fc-2e7f-4cd4-b311-d46fdbe9285b
+type=ethernet
+interface-name=eth1
+
+[ethernet]
+
+[ipv4]
+method=link-local
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
