@@ -213,4 +213,4 @@ PING 8.8.8.8 (8.8.8.8) from 10.18.127.167 wlan0: 56(84) bytes of data.
 rtt min/avg/max/mdev = 24.482/24.482/24.482/0.000 ms
 ```
 
-More details could be find on the Red Hat [documentation](https://docs.redhat.com/fr/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/proc_connecting-to-a-wifi-network-by-using-nmcli_assembly_managing-wifi-connections#proc_connecting-to-a-wifi-network-by-using-nmcli_assembly_managing-wifi-connections).
+More details could be find on the Red Hat [documentation](https://docs.redhat.com/fr/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/proc_connecting-to-a-wifi-network-by-using-nmcli_assembly_managing-wifi-connections#proc_connecting-to-a-wifi-network-by-using-nmcli_assembly_managing-wifi-connections). For the Phytec phyboard-AM62x, we used the [WiFI M.2 chipset](https://docs.phytec.com/projects/yocto-phycore-am62x/en/latest/interfaceguides/wifi.html), antennas may be needed too.
