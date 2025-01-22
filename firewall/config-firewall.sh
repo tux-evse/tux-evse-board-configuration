@@ -3,13 +3,13 @@
 # add a port to a zone
 add_port() {
     echo "Adding $2 port to $1 zone..."
-    firewall-cmd --permanent --zone="$1" --add-port="$2"
+    firewall-cmd --permanent --zone="$1" --add-port="$2" &>/dev/null
 }
 
 # add a service to a zone if not already added
 add_service() {
     echo "Adding $2 service to $1 zone..."
-    firewall-cmd --permanent --zone="$1" --add-service="$2"
+    firewall-cmd --permanent --zone="$1" --add-service="$2" &>/dev/null
 }
 
 # add interfaces to firewall zones even if they don't exist
