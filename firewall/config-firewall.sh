@@ -37,6 +37,10 @@ if ! firewall-cmd --zone=public --query-interface=usb0; then
     firewall-cmd --zone=public --add-interface=usb0 --permanent
 fi
 
+if ! firewall-cmd --zone=trusted --query-interface=eth2; then
+    firewall-cmd --zone=trusted --add-interface=eth2 --permanent
+fi
+
 wg_interface=$(nmcli -g name con | grep wg)
 if [ -n "$wg_interface" ] && ! firewall-cmd --zone=work --query-interface="$wg_interface"; then
     firewall-cmd --zone=work --add-interface="$wg_interface" --permanent
