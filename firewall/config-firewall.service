@@ -5,7 +5,7 @@ After=config-network.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/config-firewall > /dev/null
+ExecStart=/usr/bin/config-firewall
 
 [Install]
 WantedBy=multi-user.target
