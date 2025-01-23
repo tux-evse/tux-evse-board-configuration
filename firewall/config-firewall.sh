@@ -50,4 +50,7 @@ add_ports "external" "80/tcp, 443/tcp, 8080-8082/tcp, 1200-1299/tcp"
 add_services "external" "http, https, dhcp"
 
 echo "-- firewallD reload to apply changes --"
-firewall-cmd --reload
+if ! firewall-cmd --reload; then
+    echo "Failed to reload firewall. Changes may not have been applied."
+    exit 1
+fi
