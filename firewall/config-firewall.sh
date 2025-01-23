@@ -3,13 +3,15 @@
 # Add ports to a zone
 add_ports() {
     echo "Adding ports to $1 zone: $2"
-    firewall-cmd --permanent --zone="$1" --add-port="$2" >/dev/null || exit 1
+    local port=$(eval echo --add-port={$2})
+    firewall-cmd --permanent --zone="$1" $port >/dev/null || exit 1
 }
 
 # Add services to a zone
 add_services() {
     echo "Adding services to $1 zone: $2"
-    firewall-cmd --permanent --zone="$1" --add-service="$2" >/dev/null || exit 1
+    local service=$(eval echo --add-service={$2})
+    firewall-cmd --permanent --zone="$1" $service >/dev/null || exit 1
 }
 
 # Add interfaces to firewall zones
@@ -39,15 +41,15 @@ if [ -n "$wg_interface" ] && ! firewall-cmd --zone=work --query-interface="$wg_i
 fi
 
 echo "-- firewallD 4G modem configuration --"
-add_ports "public" "80/tcp, 8080-8082/tcp, 1200-1299/tcp"
+add_ports "public" "80/tcp,8080-8082/tcp,1200-1299/tcp"
 
 echo "-- firewallD eth0 configuration --"
-add_ports "work" "22/tcp, 80/tcp, 443/tcp, 8080-8082/tcp, 1200-1299/tcp"
-add_services "work" "cockpit"
+add_ports "work" "22/tcp,80/tcp,443/tcp,8080-8082/tcp,1200-1299/tcp"
+add_services "work" "cockpit,dhcp"
 
 echo "-- firewallD wlan0 configuration --"
-add_ports "external" "80/tcp, 443/tcp, 8080-8082/tcp, 1200-1299/tcp"
-add_services "external" "http, https, dhcp"
+add_ports "external" "80/tcp,443/tcp,8080-8082/tcp,1200-1299/tcp"
+add_services "external" "http,https,dhcp"
 
 echo "-- firewallD reload to apply changes --"
 if ! firewall-cmd --reload; then
