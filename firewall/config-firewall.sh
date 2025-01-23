@@ -3,13 +3,13 @@
 # Add ports to a zone
 add_ports() {
     echo "Adding ports to $1 zone: $2"
-    firewall-cmd --permanent --zone="$1" --add-port="$2" &>/dev/null
+    firewall-cmd --permanent --zone="$1" --add-port="$2" >/dev/null || exit 1
 }
 
 # Add services to a zone
 add_services() {
     echo "Adding services to $1 zone: $2"
-    firewall-cmd --permanent --zone="$1" --add-service="$2" &>/dev/null
+    firewall-cmd --permanent --zone="$1" --add-service="$2" >/dev/null || exit 1
 }
 
 # Add interfaces to firewall zones
@@ -19,7 +19,7 @@ add_interfaces() {
     for interface in "$@"; do
         if [[ $(firewall-cmd --zone="$zone" --query-interface="$interface") == "no" ]]; then
             echo "Adding $interface interface to $zone zone..."
-            firewall-cmd --permanent --zone="$zone" --add-interface="$interface" &>/dev/null
+            firewall-cmd --permanent --zone="$zone" --add-interface="$interface" >/dev/null || exit 1
         else
             echo "$interface interface already in $zone zone!"
         fi
