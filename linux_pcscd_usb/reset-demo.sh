@@ -1,15 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Kill energy-manager"
-su - rp-owner afm-util kill energy-manager
-echo "Kill auth-manager"
-su - rp-owner afm-util kill auth-manager
-echo "Kill charging-manager"
-su - rp-owner afm-util kill charging-manager
-echo "Kill display-manager"
-su - rp-owner afm-util kill display-manager
-echo "Kill tux-evse-webapp"
-su - rp-owner afm-util kill tux-evse-webapp
+UNITS="afm-appli-auth-manager--main@1001.service\
+ afm-appli-charging-manager--main@1001.service\
+ afm-appli-dbus-binding--main@1001.service\
+ afm-appli-display-manager--main@1001.service\
+ afm-appli-energy-manager--main@1001.service\
+ josev-rslac\
+ josev-piso\
+ josev-pocpp"
+
+for unit in ${UNITS}; do
+    echo "Kill $unit"
+    systemctl stop $unit
+done
 
 #----------------------------------------
 pkill -9 -U 1001
@@ -25,17 +28,7 @@ chsmack -a "App:tux-evse-webapp:Conf" /usr/redpesk/tux-evse-webapp/etc/*
 #----------------------------------------
 systemctl restart afm-user-session@1001.service
 
-echo "Restart energy-manager"
-su - rp-owner afm-util run energy-manager
-
-echo "Restart auth-manager"
-su - rp-owner afm-util run auth-manager
-
-echo "Restart charging-manager"
-su - rp-owner afm-util run charging-manager
-
-echo "Restart display-manager"
-su - rp-owner afm-util run display-manager
-
-echo "Restart tux-evse-webapp"
-su - rp-owner afm-util run tux-evse-webapp
+for unit in ${UNITS}; do
+    echo "Restart $unit"
+    systemctl start $unit
+done
