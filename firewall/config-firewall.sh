@@ -28,6 +28,13 @@ add_interfaces() {
     done
 }
 
+echo "-- Fixing SMACK labels of firewalld config files ..."
+# firewalld-cmd needs to add new files in /etc/firewalld/zones
+# but the default smack label "_" forbids it.
+# We change smack labels here, but this is ugly.
+# FIXME: change the logic and replace firewalld-cmd by static configuration files easier to package
+chsmack -ra System /etc/firewalld/
+
 echo "-- firewallD interfaces configuration --"
 add_interfaces "work" "eth0" "eth1"
 add_interfaces "external" "wlan0"
