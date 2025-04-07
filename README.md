@@ -1,5 +1,7 @@
 # tux-evse-board-configuration
 
+This repo contains some of configuration used in Tux-Evse project.
+
 ## At the first boot
 
 At the first boot you need to configure some point on the board.
