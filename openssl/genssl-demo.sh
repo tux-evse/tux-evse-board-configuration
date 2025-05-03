@@ -24,6 +24,9 @@ if ! [ -f "$DIR/genssl/tuxevse-key.pem" ] ; then
 
     cp tuxevse* /usr/redpesk/tux-evse-webapp/etc
 
+    chgrp users /usr/redpesk/tux-evse-webapp/etc/tuxevse-key.pem
+    chmod g+r /usr/redpesk/tux-evse-webapp/etc/tuxevse-key.pem
+
     # chmod a+rwx -R $DIR/genssl
     chsmack -a App:tux-evse-webapp:Conf /usr/redpesk/tux-evse-webapp/etc/*
 
